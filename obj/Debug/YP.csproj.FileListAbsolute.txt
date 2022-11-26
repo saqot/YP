@@ -1,0 +1,56 @@
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\bin\Debug\YP.exe.config
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\bin\Debug\YP.exe
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\bin\Debug\YP.pdb
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.Form1.resources
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.Properties.Resources.resources
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.csproj.GenerateResource.cache
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.csproj.CoreCompileInputs.cache
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.exe
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.pdb
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.csproj.AssemblyReference.cache
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.Form2.resources
+C:\Users\25-тпгерберсгагенаа\source\repos\YP\YP\obj\Debug\YP.csproj.ResolveComReference.cache
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\bin\Debug\YP.exe.config
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\bin\Debug\YP.exe
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\bin\Debug\YP.pdb
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.csproj.AssemblyReference.cache
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.csproj.ResolveComReference.cache
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.Form1.resources
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.Form2.resources
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.Properties.Resources.resources
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.csproj.GenerateResource.cache
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.csproj.CoreCompileInputs.cache
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.exe
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.pdb
+C:\Users\25-тпгерберсгагенаа\Desktop\YP\YP\obj\Debug\YP.Form3.resources
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\bin\Debug\YP.exe.config
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\bin\Debug\YP.exe
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\bin\Debug\YP.pdb
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.csproj.AssemblyReference.cache
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.csproj.SuggestedBindingRedirects.cache
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.csproj.ResolveComReference.cache
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.Form1.resources
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.Form2.resources
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.Form3.resources
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.Properties.Resources.resources
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.csproj.GenerateResource.cache
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.csproj.CoreCompileInputs.cache
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.exe
+C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.pdb
+D:\vs\YP\obj\Debug\YP.csproj.AssemblyReference.cache
+D:\vs\YP\obj\Debug\YP.csproj.SuggestedBindingRedirects.cache
+D:\vs\YP\obj\Debug\YP.csproj.ResolveComReference.cache
+D:\vs\YP\obj\Debug\YP.Form1.resources
+D:\vs\YP\obj\Debug\YP.Form2.resources
+D:\vs\YP\obj\Debug\YP.Form3.resources
+D:\vs\YP\obj\Debug\YP.Properties.Resources.resources
+D:\vs\YP\obj\Debug\YP.csproj.GenerateResource.cache
+D:\vs\YP\obj\Debug\YP.csproj.CoreCompileInputs.cache
+D:\vs\YP\obj\Debug\YP.exe
+D:\vs\YP\obj\Debug\YP.pdb
+D:\vs\YP\bin\Debug\YP.exe.config
+D:\vs\YP\bin\Debug\YP.exe
+D:\vs\YP\bin\Debug\YP.pdb
+D:\vs\YP\bin\Debug\Microsoft.VisualStudio.QualityTools.ExecutionCommon.dll
+D:\vs\YP\bin\Debug\Microsoft.VisualStudio.QualityTools.Common.dll
+D:\vs\YP\obj\Debug\YP.csproj.CopyComplete
