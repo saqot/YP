@@ -1,7 +1,7 @@
 ﻿
 namespace YP
 {
-    partial class Form3
+    partial class FormPodrobno
     {
         /// <summary>
         /// Required designer variable.

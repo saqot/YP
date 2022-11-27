@@ -40,9 +40,6 @@ C:\Users\senya\OneDrive\Рабочий стол\YP\YP\obj\Debug\YP.pdb
 D:\vs\YP\obj\Debug\YP.csproj.AssemblyReference.cache
 D:\vs\YP\obj\Debug\YP.csproj.SuggestedBindingRedirects.cache
 D:\vs\YP\obj\Debug\YP.csproj.ResolveComReference.cache
-D:\vs\YP\obj\Debug\YP.Form1.resources
-D:\vs\YP\obj\Debug\YP.Form2.resources
-D:\vs\YP\obj\Debug\YP.Form3.resources
 D:\vs\YP\obj\Debug\YP.Properties.Resources.resources
 D:\vs\YP\obj\Debug\YP.csproj.GenerateResource.cache
 D:\vs\YP\obj\Debug\YP.csproj.CoreCompileInputs.cache
@@ -54,3 +51,6 @@ D:\vs\YP\bin\Debug\YP.pdb
 D:\vs\YP\bin\Debug\Microsoft.VisualStudio.QualityTools.ExecutionCommon.dll
 D:\vs\YP\bin\Debug\Microsoft.VisualStudio.QualityTools.Common.dll
 D:\vs\YP\obj\Debug\YP.csproj.CopyComplete
+D:\vs\YP\obj\Debug\YP.FormLogin.resources
+D:\vs\YP\obj\Debug\YP.FormZapisiVse.resources
+D:\vs\YP\obj\Debug\YP.FormPodrobno.resources

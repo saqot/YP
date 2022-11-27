@@ -3,17 +3,25 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace YP
 {
-    class Class1
+    class ClassDB
     {
+        public const string TABLE_UCHENIKI = "yp_ucheniki";
+        public const string TABLE_VRACHI = "yp_vrachi";
+        public const string TABLE_ZAPISI = "yp_zapisi";
+
         public static string connstr = @"Data Source=62.78.81.19;Initial Catalog=Medpunkt;User ID=stud;Password=123456789";
+        
         public static DataTable Query(string sql)
         {
+            Console.WriteLine("--------sql------------");
+            Console.WriteLine(sql);
+            Console.WriteLine("--------...------------");
+
             DataTable dt = new DataTable();
             try
             {
@@ -29,7 +37,49 @@ namespace YP
             return dt;
         }
 
-        public static Excel.Application buldExcelApp(string SqlText)
+        public static DataRow[] findLoginUser(string table, string login)
+        {
+            return ClassDB.Query("SELECT * FROM [dbo].[" + table + "] where [login] LIKE '" + login + "';").Select();
+        }
+
+        public static DataTable selectForZapisiGrid(string where = "")
+        {
+            string sql = "SELECT " +
+                "u.id AS 'u.id', u.familia, u.ima, u.otchestvo, u.pol, u.telefon, u.klass, u.date_rozhdeniia, u.login, " +
+                "zp.id AS 'zp.id', zp.diagnoz, zp.simptomi, zp.date_start, zp.date_end " +
+                "FROM [dbo].[" + TABLE_ZAPISI + "] AS zp " +
+                "LEFT JOIN [dbo].[" + TABLE_UCHENIKI + "] AS u " +
+                "ON (zp.patient_id = u.id)";
+
+            if (where != "")
+            {
+                sql += $" {where}";
+            }
+            
+            return ClassDB.Query(sql);
+        }
+
+        public static DataTable selectPoisk(string poiskText)
+        {
+            string sql = $"WHERE " +
+                $"[familia] LIKE '%{poiskText}%' "+
+                $"OR [familia] LIKE '%{poiskText}%' " +
+                $"OR [ima] LIKE '%{poiskText}%' " +
+                $"OR [otchestvo] LIKE '%{poiskText}%' " +
+                $"OR [pol] LIKE '%{poiskText}%' " +
+                $"OR [telefon] LIKE '%{poiskText}%' " +
+                $"OR [klass] LIKE '%{poiskText}%' " +
+                $"OR [login] LIKE '%{poiskText}%' " +
+                $"OR [diagnoz] LIKE '%{poiskText}%' " +
+                $"OR [simptomi] LIKE '%{poiskText}%' " +
+                $"OR [date_rozhdeniia] LIKE '%{poiskText}%' " +
+                $"OR [date_start] LIKE '%{poiskText}%' " +
+                $"OR [date_end] LIKE '%{poiskText}%'";
+
+            return ClassDB.selectForZapisiGrid(sql);
+        }
+
+        public static Excel.Application buldExcelApp(string whereDateEnd = "")
         {
             var fields = new[]
              {
@@ -37,13 +87,13 @@ namespace YP
                 new {field = "ima", name = "Имя", width = 10},
                 new {field = "otchestvo", name = "Отчество", width = 15},
                 new {field = "telefon", name = "Номер телефона", width = 17},
-                new {field = "data_rozhdeniia", name = "Дата рождения", width = 16},
+                new {field = "date_rozhdeniia", name = "Дата рождения", width = 16},
                 new {field = "pol", name = "Пол", width = 5},
                 new {field = "klass", name = "Класс", width = 6},
                 new {field = "diagnoz", name = "Диагноз", width = 10},
                 new {field = "simptomi", name = "Симптомы", width = 15},
-                new {field = "start_data", name = "Дата начала", width = 11},
-                new {field = "end_data", name = "Дата окончания", width = 15},
+                new {field = "date_start", name = "Дата начала", width = 11},
+                new {field = "date_end", name = "Дата окончания", width = 15},
             };
 
 
@@ -69,10 +119,8 @@ namespace YP
             Excel.Range rng2 = worksheet.Range[worksheet.Cells[4, 1], worksheet.Cells[4, fields.Count()]];
             rng2.Font.Bold = true;
 
-            SqlDataAdapter adapter = new SqlDataAdapter(SqlText, Class1.connstr);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-
+            DataTable table = ClassDB.selectForZapisiGrid(whereDateEnd);
+  
 
             int rowCount = 5;
             foreach (DataRow row in table.Rows)
