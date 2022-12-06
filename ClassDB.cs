@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace YP
@@ -31,8 +32,8 @@ namespace YP
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка обращения к БД!\nПроверьте вводимые данные \n {ex.Message}", "Уведомление", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-
+                ClassMessage.showError($"Ошибка обращения к БД! \nПроверьте вводимые данные \n {ex.Message}");
+                return null;
             }
             return dt;
         }
@@ -42,20 +43,106 @@ namespace YP
             return ClassDB.Query("SELECT * FROM [dbo].[" + table + "] where [login] LIKE '" + login + "';").Select();
         }
 
+        public static void updateOrInsertUchenik(string familia, string ima, string otchestvo, DateTime date_rozhdeniia, string telefon, string pol, string klass, string login, string id = "")
+        {
+            string sqlUpdateOrInsertUchenik;
+            if (id == "")
+            {
+                sqlUpdateOrInsertUchenik = $@"INSERT INTO [dbo].[{ClassDB.TABLE_UCHENIKI}]
+                (
+                    [familia],
+                    [ima],
+                    [otchestvo],
+                    [date_rozhdeniia],
+                    [telefon],
+                    [pol],
+                    [klass],
+                    [login],
+                    [pwd]
+                ) VALUES (
+                    '{familia}',
+                    '{ima}',
+                    '{otchestvo}',
+                    '{date_rozhdeniia}',
+                    '{telefon}',
+                    '{pol}',
+                    '{klass}',
+                    '{login}',
+                    '111'
+                );";
+            } else {
+                sqlUpdateOrInsertUchenik = $"UPDATE [dbo].[{ClassDB.TABLE_UCHENIKI}] SET " +
+                $" [familia] ='{familia}',  [ima] ='{ima}', [otchestvo] ='{otchestvo}'," +
+                $" [date_rozhdeniia] ='{date_rozhdeniia}'," +
+                $" [telefon] ='{telefon}'," +
+                $" [pol] ='{pol}'," +
+                $" [klass] ='{klass}'," +
+                $" [login] ='{login}'," +
+                $" WHERE id = '{id}';";
+            }
+
+            ClassDB.Query(sqlUpdateOrInsertUchenik);
+        }
+
+        public static void updateOrInsertZapisi(string diagnoz, string simptomi, DateTime date_start, DateTime date_end, string patient_id = "", string id = "")
+        {
+            string sqlUpdateOrInsertUchenik;
+            if (id == "")
+            {
+                sqlUpdateOrInsertUchenik = $@"INSERT INTO [dbo].[{ClassDB.TABLE_ZAPISI}]
+                (
+                    [diagnoz],
+                    [simptomi],
+                    [date_start],
+                    [date_end],
+                    [patient_id]
+                ) VALUES (
+                    '{diagnoz}',
+                    '{simptomi}',
+                    '{date_start}',
+                    '{date_end}',
+                    '{patient_id}'
+                );";
+            }
+            else
+            {
+                sqlUpdateOrInsertUchenik = $"UPDATE [dbo].[{ClassDB.TABLE_ZAPISI}] SET " +
+                $" [diagnoz] ='{diagnoz}',  [simptomi] ='{simptomi}', [date_start] ='{date_start}', [date_end] ='{date_end}' " +
+                $" WHERE id = '{id}';";
+            }
+
+            ClassDB.Query(sqlUpdateOrInsertUchenik);
+        }
+
         public static DataTable selectForZapisiGrid(string where = "")
         {
-            string sql = "SELECT " +
-                "u.id AS 'u.id', u.familia, u.ima, u.otchestvo, u.pol, u.telefon, u.klass, u.date_rozhdeniia, u.login, " +
-                "zp.id AS 'zp.id', zp.diagnoz, zp.simptomi, zp.date_start, zp.date_end " +
-                "FROM [dbo].[" + TABLE_ZAPISI + "] AS zp " +
-                "LEFT JOIN [dbo].[" + TABLE_UCHENIKI + "] AS u " +
-                "ON (zp.patient_id = u.id)";
+            string sql = $"SELECT " +
+                $"u.id AS 'u.id', u.familia, u.ima, u.otchestvo, u.pol, u.telefon, u.klass, u.date_rozhdeniia, u.login, " +
+                $"zp.id AS 'zp.id', zp.diagnoz, zp.simptomi, zp.date_start, zp.date_end " +
+                $"FROM [dbo].[{ClassDB.TABLE_ZAPISI}] AS zp " +
+                $"LEFT JOIN [dbo].[{ClassDB.TABLE_UCHENIKI}] AS u  ON (zp.patient_id = u.id)";
 
             if (where != "")
             {
                 sql += $" {where}";
             }
-            
+            sql += " ORDER BY zp.id DESC;";
+            return ClassDB.Query(sql);
+        }
+
+        public static DataTable selectForUchenikiGrid(string where = "")
+        {
+            string sql = $"SELECT " +
+                $"u.id AS 'u.id', u.familia, u.ima, u.otchestvo, u.pol, u.telefon, u.klass, u.date_rozhdeniia, u.login " +
+                $"FROM [dbo].[{ ClassDB.TABLE_UCHENIKI}] AS u ";
+
+            if (where != "")
+            {
+                sql += $" {where}";
+            }
+
+            sql += " ORDER BY u.id DESC;";
+
             return ClassDB.Query(sql);
         }
 

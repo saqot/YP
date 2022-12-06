@@ -14,5 +14,10 @@ namespace YP
         {
             MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        public static void showError(string message)
+        {
+            MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
